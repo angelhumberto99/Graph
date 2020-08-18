@@ -72,3 +72,14 @@ class Graph:
         if self.__graph.get(origin, False):
             return True
         return False
+
+    def EraseEdge(self, origin, destiny):
+        if self.__graph.get(origin, False):
+            aux = self.GetNeighbors(origin)
+            if aux.get(destiny):
+                if self.__directed == False:
+                    del self.__graph[destiny][origin]
+                del self.__graph[origin][destiny]
+            else:
+                print("There is not an edge between "
+                    , origin, " and ", destiny)

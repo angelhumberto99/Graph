@@ -28,6 +28,15 @@ def main():
     #This method verifies if certain vertice exists in the graph
     print(g.Contains("A"))
 
+    #deleting the conection between A and B
+    g.EraseEdge("A", "B")
+
+    #checking the data
+    g.PrintData()
+
+    #getting an error
+    g.EraseEdge("A", "B")
+
 
 if __name__ == "__main__":
     main()
