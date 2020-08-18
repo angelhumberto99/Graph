@@ -12,30 +12,33 @@ def main():
     g.CreateEdge("A", "D", 3)
 
     #The IsEdge method returns True only if an edge is founded
-    print ("there is an edge between A and B: ", g.IsEdge("A", "B"))
+    print ("\nThere is an edge between A and B: ", g.IsEdge("A", "B"))
 
     #The GetCost method returns the value of the edge
-    print ("Cost: (A - ", g.GetCost("A", "B"), " - B)")
+    print ("\nThe cost between A and B is: ", g.GetCost("A", "B"))
 
     #this method prints the whole graph in the following format:
     #( Origin Vertice , Cost, Destiny Vertice ) 
+    print ("\nPrinting the graph")
     g.PrintData()
 
     #This method returns a dictionary 
     #which represents the vertices that are linked to the origin we send as parameter
-    print(g.GetNeighbors("A"))
+    print("\nThe neighbors of 'A' are: ", g.GetNeighbors("A"))
 
     #This method verifies if certain vertice exists in the graph
-    print(g.Contains("A"))
+    print("\nThe graph contains 'A': ",g.Contains("A"))
 
     #deleting the conection between A and B
-    g.EraseEdge("A", "B")
+    g.EraseConnection("A", "B")
 
     #checking the data
+    print("\nPrinting the graph after deleting the connection between A and B")
     g.PrintData()
 
     #getting an error
-    g.EraseEdge("A", "B")
+    print("\nTrying to delete a connection that is already done")
+    g.EraseConnection("A", "B")
 
 
 if __name__ == "__main__":

@@ -40,7 +40,6 @@ class Graph:
 
 
     def PrintData(self):
-        #print(self.__graph)
         size = len(self.__graph)
         i = 0
         keys = list(self.__graph.keys())
@@ -55,14 +54,14 @@ class Graph:
 
 
     def GetCost(self, origin, destiny):
-        if self.IsEdge(origin, destiny) == False:
+        if not self.IsEdge(origin, destiny):
             print("The edge does not exist")
             return
         return self.__graph[origin][destiny]
 
         
     def GetNeighbors(self, origin):
-        if self.__graph.get(origin, False) == False:
+        if not self.__graph.get(origin, False):
             print("The origin doesn't exist")
             return
         return self.__graph[origin]
@@ -73,11 +72,11 @@ class Graph:
             return True
         return False
 
-    def EraseEdge(self, origin, destiny):
+    def EraseConnection(self, origin, destiny):
         if self.__graph.get(origin, False):
             aux = self.GetNeighbors(origin)
             if aux.get(destiny):
-                if self.__directed == False:
+                if not self.__directed:
                     del self.__graph[destiny][origin]
                 del self.__graph[origin][destiny]
             else:
